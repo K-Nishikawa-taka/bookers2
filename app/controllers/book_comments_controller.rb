@@ -6,7 +6,8 @@ class BookCommentsController < ApplicationController
     if @comment.save
       redirect_to book_path(@book)
     else
-      render 'books#show'
+      @book_comment = BookComment.new
+      render template: 'books/show'
     end
   end
 
