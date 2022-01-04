@@ -59,6 +59,10 @@
     </header>
 
     <main>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:p, value, id: "#{key}") %>
+      <% end %>
+      
       <% if user_signed_in? %>
         <div class="search-form">
           <%= form_with url: search_path, method: :get, local: true do |f| %>
@@ -68,10 +72,6 @@
             <%= f.submit "検索" %>
           <% end %>
         </div>
-      <% end %>
-
-      <% flash.each do |key, value| %>
-        <%= content_tag(:p, value, id: "#{key}") %>
       <% end %>
 
       <%= yield %>

@@ -1,0 +1,3 @@
+$(".book-count").html("<%= j(render 'count', book: @book) %>");
+$(".comment_list").html("<%= j(render 'comments', book: @book) %>");
+$("textarea").val('');
